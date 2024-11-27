@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customize Your Menu</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+</head>
+<body>
+    <h1>Customize Your Menu</h1>
+     <!-- PDF Button -->
+    <a id="openPdfButton" href="/static/menu.pdf" target="_blank">View Menu PDF</a>
+
+    <div>
+        {% for message in chat_history %}
+            {% if message.role == 'user' %}
+                <p><strong>You:</strong> {{ message.content }}</p>
+            {% else %}
+                <p><strong>Assistant:</strong> {{ message.content }}</p>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <form method="post">
+        <input type="text" name="user_input" placeholder="Type your message here..." size="80" required>
+        <input type="submit" value="Send">
+    </form>
+    <h2>Current Menu:</h2>
+    {% for course, items in selected_rec['Final Menu'].items() %}
+        <h3>{{ course }}</h3>
+        {% if items %}
+            <table border="1">
+                <tr>
+                    <th>Item</th>
+                    <th>Dietary Restrictions</th>
+                    <th>Portion Size</th>
+                    <th>Quantity</th>
+                    <th>Cost per Item</th>
+                    <th>Total Cost</th>
+                </tr>
+                {% for item in items %}
+                    <tr>
+                        <td>{{ item['Item'] }}</td>
+                        <td>{{item['Dietary Restrictions']}}</td>
+                        <td>{{ item['Selected Portion']['Qty'] }}</td>
+                        <td>{{ item['Quantity'] }}</td>
+                        <td>${{ item['Selected Portion']['Cost'] }}</td>
+                        <td>${{ item['Total_Cost'] }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No items selected for this course.</p>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>

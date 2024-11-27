@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Details</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+</head>
+<body>
+    <h1>Enter Event Details</h1>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form method="post">
+        <textarea name="event_details" rows="5" cols="50" placeholder="We have a budget of $2000 for 50 guests with 5 vegans and 3 gluten-free."></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Button to Open PDF -->
+    <a id="openPdfButton" href="static/menu.pdf" target="_blank">View Menu PDF</a>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Final Menu</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <!-- Include Stripe.js -->
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <h1>Your Final Menu</h1>
+
+        <!-- PDF Button -->
+    <a id="openPdfButton" href="/static/menu.pdf" target="_blank">View Menu PDF</a>
+    <div class="cost-summary">
+        <p><strong>Total Cost:</strong> $<span id="total-cost">{{ selected_rec['Total_Cost'] }}</span></p>
+        
+    </div>
+
+    {% for course, items in selected_rec['Final Menu'].items() %}
+        <h3>{{ course }}</h3>
+        {% if items %}
+            <table border="1" class="menu-table">
+                <tr>
+                    <th>Item</th>
+                    <th>Dietary Restrictions</th>
+                    <th>Portion Size</th>
+                    <th>Quantity</th>
+                    <th>Cost per Item</th>
+                    <th>Total Cost</th>
+                </tr>
+                {% for item in items %}
+                    <tr>
+                        <td>{{ item['Item'] }}</td>
+                        <td>{{item['Dietary Restrictions']}}</td>
+                        <td>{{ item['Selected Portion']['Qty'] }}</td>
+                        <td>{{ item['Quantity'] }}</td>
+                        <td>${{ item['Selected Portion']['Cost'] }}</td>
+                        <td>${{ item['Total_Cost'] }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No items selected for this course.</p>
+        {% endif %}
+    {% endfor %}
+
+    <!-- Checkout Button -->
+    <div class="button-group">
+        <button id="checkout-button" class="checkout-btn">Checkout with Stripe</button>
+    </div>
+
+    <!-- Modal for Additional Details -->
+    <div id="emailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEmailModal()">&times;</span>
+            <h2>Enter Your Details</h2>
+            <form id="emailForm">
+                <input type="text" name="user_name" placeholder="Your Full Name" required>
+                <input type="email" name="user_email" placeholder="Your Email" required>
+                <input type="text" name="user_address" placeholder="Delivery Address" required>
+                <input type="datetime-local" name="delivery_datetime" placeholder="Delivery Date & Time" required>
+                <input type="text" name="contact_number" placeholder="Contact Number" required>
+                <input type="hidden" name="selected_rec_index" value="{{ recommendation_index }}">
+                <button type="submit">Confirm Checkout</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const stripe = Stripe('pk_test_Ujwxvk3zBxt8yokfEFa8wSnX'); // Replace with actual public key
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("checkout-button").addEventListener("click", openEmailModal);
+
+            function openEmailModal() {
+                document.getElementById("emailModal").style.display = 'block';
+            }
+
+            function closeEmailModal() {
+                document.getElementById("emailModal").style.display = 'none';
+            }
+
+            window.onclick = function(event) {
+                if (event.target == document.getElementById('emailModal')) {
+                    closeEmailModal();
+                }
+            };
+
+            document.getElementById('emailForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const formData = new FormData(document.getElementById('emailForm'));
+                const data = {
+                    user_name: formData.get('user_name'),
+                    user_email: formData.get('user_email'),
+                    user_address: formData.get('user_address'),
+                    delivery_datetime: formData.get('delivery_datetime'),
+                    contact_number: formData.get('contact_number'),
+                    selected_rec_index: formData.get('selected_rec_index')
+                };
+
+                fetch('/create-checkout-session', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                })
+                .then(response => response.json())
+                .then(session => {
+                    if (session && session.id) {
+                        return stripe.redirectToCheckout({ sessionId: session.id });
+                    } else {
+                        alert("Failed to initiate Stripe Checkout: No session ID.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error initiating Stripe checkout:", error);
+                    alert("Error initiating Stripe checkout.");
+                });
+            });
+        });
+    </script>
+</body>
+</html>
