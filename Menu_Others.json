@@ -1,0 +1,183 @@
+[
+  {
+    "I": "Coconut Pudding",
+    "P": [
+      {"Qty": 10, "Cost": 20}
+    ],
+    "T": "Dessert",
+    "D": "Vegetarian",
+    "Tags": ["Thai", "dessert", "pudding"]
+  },
+  {
+    "I": "Mango Sweet Sticky Rice",
+    "P": [
+      {"Qty": 10, "Cost": 50},
+      {"Qty": 1, "Cost": 5}
+    ],
+    "T": "Dessert",
+    "D": "Vegetarian",
+    "Tags": ["Thai", "dessert"]
+  },
+  {
+    "I": "Sweet Sticky Rice",
+    "P": [
+      {"Qty": 10, "Cost": 50}
+    ],
+    "T": "Dessert",
+    "D": "Vegetarian",
+    "Tags": ["Thai", "dessert"]
+  },
+  {
+    "I": "Taro Sticky Rice",
+    "P": [
+      {"Qty": 1, "Cost": 2}
+    ],
+    "T": "Dessert",
+    "D": "Vegetarian",
+    "Tags": ["Thai", "dessert"]
+  },
+  {
+    "I": "Crispy Chicken Salad",
+    "P": [
+      {"Qty": 5, "Cost": 55}
+    ],
+    "T": "Side",
+    "D": "Non-Vegetarian, Gluten-free",
+    "Tags": ["Thai", "chicken", "salad", "side"]
+  },
+  {
+    "I": "Yum Salad",
+    "P": [
+      {"Qty": 5, "Cost": 55}
+    ],
+    "T": "Side",
+    "D": "Non-Vegetarian, Gluten-free",
+    "Tags": ["Thai", "beef", "salad", "side"]
+  },
+  {
+    "I": "Chicken Nam Sod",
+    "P": [
+      {"Qty": 5, "Cost": 55}
+    ],
+    "T": "Side",
+    "D": "Non-Vegetarian, Gluten-free",
+    "Tags": ["Thai", "chicken", "salad", "side"]
+  },
+  {
+    "I": "Tofu Green Salad with Peanut Sauce",
+    "P": [
+      {"Qty": 5, "Cost": 30}
+    ],
+    "T": "Side",
+    "D": "Vegetarian, Contains nuts, Gluten-free",
+    "Tags": ["Thai", "tofu", "salad", "vegetarian", "nuts", "side"]
+  },
+  {
+    "I": "White Rice",
+    "P": [
+      {"Qty": 5, "Cost": 10}
+    ],
+    "T": "Side",
+    "D": "Vegetarian, Gluten-free",
+    "Tags": ["Thai", "side", "white rice"]
+  },
+  {
+    "I": "Brown Rice",
+    "P": [
+      {"Qty": 5, "Cost": 15}
+    ],
+    "T": "Side",
+    "D": "Vegetarian, Gluten-free",
+    "Tags": ["Thai", "side", "brown rice"]
+  },
+  {
+    "I": "Crispy Veggie Rolls",
+    "P": [
+      {"Qty": 12, "Cost": 21},
+      {"Qty": 24, "Cost": 40},
+      {"Qty": 1, "Cost": 1.75}
+    ],
+    "T": "Appetizer",
+    "D": "Vegetarian",
+    "Tags": ["Thai", "spring rolls", "vegetarian", "appetizer"]
+  },
+  {
+    "I": "Sate Chicken",
+    "P": [
+      {"Qty": 10, "Cost": 20},
+      {"Qty": 20, "Cost": 38},
+      {"Qty": 1, "Cost": 2}
+    ],
+    "T": "Appetizer",
+    "D": "Non-Vegetarian, gluten-free",
+    "Tags": ["Thai", "chicken", "appetizer"]
+  },
+  {
+    "I": "Scallion Pancakes",
+    "P": [
+      {"Qty": 24, "Cost": 18},
+      {"Qty": 1, "Cost": 6}
+    ],
+    "T": "Appetizer",
+    "D": "Vegetarian",
+    "Tags": ["Thai", "vegetarian", "appetizer"]
+  },
+  {
+    "I": "Thai Ravioli",
+    "P": [
+      {"Qty": 24, "Cost": 18},
+      {"Qty": 1, "Cost": 0.95}
+    ],
+    "T": "Appetizer",
+    "D": "Vegetarian",
+    "Tags": ["Thai", "appetizer"]
+  },
+  {
+    "I": "Vegetable Dumplings",
+    "P": [
+      {"Qty": 24, "Cost": 18},
+      {"Qty": 1, "Cost": 0.95}
+    ],
+    "T": "Appetizer",
+    "D": "Vegetarian",
+    "Tags": ["Thai", "dumplings", "vegetarian", "appetizer"]
+  },
+  {
+    "I": "Chicken Wings",
+    "P": [
+      {"Qty": 12, "Cost": 12},
+      {"Qty": 24, "Cost": 24},
+      {"Qty": 1, "Cost": 1}
+    ],
+    "T": "Appetizer",
+    "D": "Non-Vegetarian",
+    "Tags": ["Thai", "chicken wings", "appetizer"]
+  },
+  {
+    "I": "Edamame",
+    "P": [
+      {"Qty": 10, "Cost": 20}
+    ],
+    "T": "Appetizer",
+    "D": "Vegetarian, Gluten-free",
+    "Tags": ["Thai", "vegetarian", "gluten-free", "appetizer"]
+  },
+  {
+    "I": "Chive Dumpling",
+    "P": [
+      {"Qty": 3, "Cost": 8}
+    ],
+    "T": "Appetizer",
+    "D": "Vegetarian, gluten-free",
+    "Tags": ["Thai", "vegetarian", "gluten-free", "appetizer"]
+  },
+  {
+    "I": "Tofu Triangle",
+    "P": [
+      {"Qty": 8, "Cost": 8.25}
+    ],
+    "T": "Appetizer",
+    "D": "Vegetarian, gluten-free",
+    "Tags": ["Thai", "vegetarian", "gluten-free", "appetizer"]
+  }
+]

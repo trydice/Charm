@@ -1,0 +1,10 @@
+Flask
+flask-session
+pymongo
+dnspython
+stripe
+openai
+requests
+jsonschema
+pandas
+gunicorn
